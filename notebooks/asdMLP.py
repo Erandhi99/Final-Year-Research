@@ -74,7 +74,7 @@ train_loader = DataLoader(to_tensor_dataset(X_train, y_train), batch_size=64, sh
 val_loader = DataLoader(to_tensor_dataset(X_val, y_val), batch_size=64)
 test_loader = DataLoader(to_tensor_dataset(X_test, y_test), batch_size=64)
 
-# Define upgraded MLP model
+# Define the MLP model
 class ASDClassifier(nn.Module):
     def __init__(self, input_dim):
         super(ASDClassifier, self).__init__()
