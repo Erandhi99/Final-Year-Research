@@ -1,0 +1,142 @@
+target:
+- ASD_traits
+continuous_cols:
+- Speech_Delay_Language_Disorder_Yes
+- Learning_disorder_Yes
+- Genetic_Disorders_Yes
+- Depression_Yes
+- Global_developmental_delay_intellectual_disability_Yes
+- Social_Behavioural_Issues_Yes
+- Anxiety_disorder_Yes
+- Sex_M
+- Ethnicity_Black
+- Ethnicity_Hispanic
+- Ethnicity_Latino
+- Ethnicity_Middle Eastern
+- Ethnicity_Mixed
+- Ethnicity_Native Indian
+- Ethnicity_Others
+- Ethnicity_PaciFica
+- Ethnicity_South Asian
+- Ethnicity_White European
+- Ethnicity_asian
+- Ethnicity_black
+- Ethnicity_middle eastern
+- Ethnicity_mixed
+- Ethnicity_south asian
+- Jaundice_Yes
+- Family_mem_with_ASD_Yes
+- Who_completed_the_test_Family member
+- Who_completed_the_test_Health Care Professional
+- Who_completed_the_test_Others
+- Who_completed_the_test_School and NGO
+- Who_completed_the_test_Self
+- A1
+- A2
+- A3
+- A4
+- A5
+- A6
+- A7
+- A8
+- A9
+- A10_Autism_Spectrum_Quotient
+- Social_Responsiveness_Scale
+- Age_Years
+- Qchat_10_Score
+- Childhood_Autism_Rating_Scale
+categorical_cols: []
+date_columns: []
+encode_date_columns: true
+validation_split: 0.2
+continuous_feature_transform: null
+normalize_continuous_features: true
+quantile_noise: 0
+num_workers: 0
+pin_memory: true
+handle_unknown_categories: true
+handle_missing_values: true
+dataloader_kwargs: {}
+task: classification
+head: LinearHead
+head_config:
+  layers: ''
+embedding_dims: []
+embedding_dropout: 0.0
+batch_norm_continuous_input: true
+learning_rate: 0.001
+loss: CrossEntropyLoss
+metrics:
+- accuracy
+metrics_prob_input:
+- false
+metrics_params:
+- sub_params_list:
+  - task: multiclass
+    num_classes: 2
+    top_k: 1
+target_range: null
+virtual_batch_size: null
+seed: 42
+_module_src: models.node
+_model_name: NODEModel
+_backbone_name: NODEBackbone
+_config_name: NodeConfig
+num_layers: 2
+num_trees: 512
+additional_tree_output_dim: 3
+depth: 6
+choice_function: entmax15
+bin_function: entmoid15
+max_features: null
+input_dropout: 0.0
+initialize_response: normal
+initialize_selection_logits: uniform
+threshold_init_beta: 1.0
+threshold_init_cutoff: 1.0
+batch_size: 64
+data_aware_init_batch_size: 2000
+fast_dev_run: false
+max_epochs: 50
+min_epochs: 1
+max_time: null
+accelerator: auto
+devices: -1
+devices_list: null
+accumulate_grad_batches: 1
+auto_lr_find: false
+auto_select_gpus: true
+check_val_every_n_epoch: 1
+gradient_clip_val: 0.0
+overfit_batches: 0.0
+deterministic: false
+profiler: null
+early_stopping: valid_loss
+early_stopping_min_delta: 0.001
+early_stopping_mode: min
+early_stopping_patience: 3
+early_stopping_kwargs: {}
+checkpoints: best
+checkpoints_path: saved_models
+checkpoints_every_n_epochs: 1
+checkpoints_name: null
+checkpoints_mode: min
+checkpoints_save_top_k: 1
+checkpoints_kwargs: {}
+load_best: true
+track_grad_norm: -1
+progress_bar: rich
+precision: 32
+trainer_kwargs: {}
+optimizer: Adam
+optimizer_params: {}
+lr_scheduler: null
+lr_scheduler_params: {}
+lr_scheduler_monitor_metric: valid_loss
+categorical_dim: 0
+continuous_dim: 44
+output_dim: 2
+output_cardinality:
+- 2
+categorical_cardinality: []
+embedded_cat_dim: 0

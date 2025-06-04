@@ -1,0 +1,156 @@
+target:
+- ASD_traits
+continuous_cols:
+- A1
+- A2
+- A3
+- A4
+- A5
+- A6
+- A7
+- A8
+- A9
+- A10_Autism_Spectrum_Quotient
+- Social_Responsiveness_Scale
+- Age_Years
+- Qchat_10_Score
+- Childhood_Autism_Rating_Scale
+categorical_cols:
+- Speech_Delay_Language_Disorder
+- Learning_disorder
+- Genetic_Disorders
+- Depression
+- Global_developmental_delay_intellectual_disability
+- Social_Behavioural_Issues
+- Anxiety_disorder
+- Sex
+- Ethnicity
+- Jaundice
+- Family_mem_with_ASD
+- Who_completed_the_test
+date_columns: []
+encode_date_columns: true
+validation_split: 0.2
+continuous_feature_transform: null
+normalize_continuous_features: true
+quantile_noise: 0
+num_workers: 0
+pin_memory: true
+handle_unknown_categories: true
+handle_missing_values: true
+dataloader_kwargs: {}
+task: classification
+head: LinearHead
+head_config:
+  layers: ''
+embedding_dims:
+- - 3
+  - 2
+- - 3
+  - 2
+- - 3
+  - 2
+- - 3
+  - 2
+- - 3
+  - 2
+- - 3
+  - 2
+- - 3
+  - 2
+- - 3
+  - 2
+- - 17
+  - 9
+- - 3
+  - 2
+- - 3
+  - 2
+- - 7
+  - 4
+embedding_dropout: 0.0
+batch_norm_continuous_input: true
+learning_rate: 0.001
+loss: CrossEntropyLoss
+metrics:
+- accuracy
+metrics_prob_input:
+- false
+metrics_params:
+- sub_params_list:
+  - task: multiclass
+    num_classes: 2
+    top_k: 1
+target_range: null
+virtual_batch_size: 128
+seed: 42
+_module_src: models.tabnet
+_model_name: TabNetModel
+_backbone_name: Backbone
+_config_name: TabNetModelConfig
+n_d: 8
+n_a: 8
+n_steps: 3
+gamma: 1.3
+n_independent: 2
+n_shared: 2
+mask_type: sparsemax
+grouped_features: null
+batch_size: 64
+data_aware_init_batch_size: 2000
+fast_dev_run: false
+max_epochs: 200
+min_epochs: 1
+max_time: null
+accelerator: auto
+devices: -1
+devices_list: null
+accumulate_grad_batches: 1
+auto_lr_find: false
+auto_select_gpus: true
+check_val_every_n_epoch: 1
+gradient_clip_val: 0.0
+overfit_batches: 0.0
+deterministic: false
+profiler: null
+early_stopping: 'True'
+early_stopping_min_delta: 0.001
+early_stopping_mode: min
+early_stopping_patience: 20
+early_stopping_kwargs: {}
+checkpoints: null
+checkpoints_path: saved_models
+checkpoints_every_n_epochs: 1
+checkpoints_name: null
+checkpoints_mode: min
+checkpoints_save_top_k: 1
+checkpoints_kwargs: {}
+load_best: true
+track_grad_norm: -1
+progress_bar: rich
+precision: 32
+trainer_kwargs: {}
+optimizer: Adam
+optimizer_params: {}
+lr_scheduler: null
+lr_scheduler_params: {}
+lr_scheduler_monitor_metric: valid_loss
+categorical_dim: 12
+continuous_dim: 14
+output_dim: 2
+output_cardinality:
+- 2
+categorical_cardinality:
+- 3
+- 3
+- 3
+- 3
+- 3
+- 3
+- 3
+- 3
+- 17
+- 3
+- 3
+- 7
+embedded_cat_dim: 33
